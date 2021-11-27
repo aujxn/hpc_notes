@@ -1,6 +1,7 @@
 from mpi4py import MPI
 import sys
 import random
+import math
 from decimal import *
 
 comm = MPI.COMM_WORLD
@@ -19,6 +20,7 @@ while MPI.Wtime() - start_time < run_time:
         else:
             outside += 1
 
+# Could also use comm.Sum operation
 all_inside = comm.gather(inside, root=0)
 all_outside = comm.gather(outside, root=0)
 
@@ -33,4 +35,5 @@ if rank == 0:
         inside += all_inside[i]
         total += all_outside[i] + all_inside[i]
     getcontext().prec = 100
-    print(f"Pi = {Decimal(inside) / Decimal(total)}")
+    print(f"total samples: {total}")
+    print(f"Pi = {Decimal(4) * Decimal(inside) / Decimal(total)}")

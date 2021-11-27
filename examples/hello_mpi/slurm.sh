@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #SBATCH --job-name hello_world_mpi
-#SBATCH --time 00:10:00
+#SBATCH --partition short
 #SBATCH --nodes 2
-#SBATCH --output hello_world_mpi_py.txt
+#SBATCH --output out.txt 
 #SBATCH --ntasks 4
 
 module load openmpi-3.0.1/gcc-9.2.0
