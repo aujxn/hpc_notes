@@ -1,7 +1,12 @@
 # High Performance Computing with NGSolve on the Coeus cluster at PSU
 This repo contains information about how to get set up on the Coeus computing cluster and some simple examples of using MPI and PETSc on the cluster.
 
-## Getting Started / Installing NGSolve
+Contents:
+- [installation instructions on Coeus cluster](#installing-ngsolve)
+- [general notes](notes.md) about HPC and NGSolve I created for this resource
+- [examples index](examples/README.md) with a list of examples included
+
+## Installing NGSolve
 - get your Research Computing accout from OIT
 - ssh into one of the login nodes on the cluster
 ```bash
@@ -32,9 +37,3 @@ chmod +x install_ngsolve.sh
    module load openmpi-3.0.1/gcc-9.2.0
    module load Utils/lapack/3.8.0/gcc-8.2.0
    ```
-
-## MPI examples
-TODO
-
-## PETSc examples
-TODO
