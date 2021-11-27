@@ -18,7 +18,20 @@ chmod +x install_ngsolve.sh
 - hopefully this works I don't really know how to make robust shell scripts but it takes a long time
   - we do this inside tmux just in case you disconnect it won't stop building
   - to reattach to your tmux session, login to the cluster and run: `tmux attach -t 0`
-- if everything worked you should be able to run `which netgen` and `which ngs` with no error
+- if everything worked you should be able to run `which netgen` and `which ngs` with no error. If these work then add some lines to `~/.bashrc` and `~/.profile` so everything is good to go next time you log in
+   - Add the following to the end of your `~/.profile`. If it doesn't exist then create one.
+   ```bash
+   NGSOLVE="$HOME/ngsuite/ngsolve-install"
+   OCC="$HOME/ngsuite/occ-install"
+   export PATH="$NGSOLVE/bin:$OCC/bin:$PATH"
+   export LD_LIBRARY_PATH=$NGSOLVE/lib:$OCC/lib:$LD_LIBRARY_PATH
+   export PYTHONPATH=$NGSOLVE/lib64/python3.6/site-packages
+   ```
+   - Add the following to the end of you `~/.bashrc`. (one should exist that sources `/etc/bashrc`)
+   ```bash
+   module load openmpi-3.0.1/gcc-9.2.0
+   module load Utils/lapack/3.8.0/gcc-8.2.0
+   ```
 
 ## MPI examples
 TODO
