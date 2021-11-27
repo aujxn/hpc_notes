@@ -1,9 +1,9 @@
 # Index for the examples
 
-## [Hello MPI w/Slurm](./hello_mpi/README.md)
+## [Hello MPI w/Slurm](./hello_mpi)
 The most basic distributed python program we can write.
 
-## [Dartboard Pi](./dartboard_pi/README.md)
+## [Dartboard Pi](./dartboard_pi)
 Estimate the value of pie using RNG.
 
 ## Poison MPI
