@@ -9,8 +9,13 @@ else
 fi
 
 source $HOME/venv/bin/activate
-pip install --upgrade pip
-pip install mpi4py
+pip3 install --upgrade pip
+pip3 install mpi4py jupyter scipy matplotlib numpy webgui_jupyter_widgets 
+
+jupyter nbextension install --user --py widgetsnbextension
+jupyter nbextension enable --user --py widgetsnbextension
+jupyter nbextension install --user --py webgui_jupyter_widgets
+jupyter nbextension enable --user --py webgui_jupyter_widgets
 
 echo "Purging loaded modules..."
 module purge
@@ -66,3 +71,4 @@ make install
 # Update paths to include NGSolve
 export LD_LIBRARY_PATH=$NGSOLVE_INSTALL_DIR/lib/:$LD_LIBRARY_PATH
 export PATH=$NGSOLVE_INSTALL_DIR/bin/:$PATH
+export PYTHONPATH=$NGSOLVE_INSTALL_DIR/lib64/python3.6/site-packages
